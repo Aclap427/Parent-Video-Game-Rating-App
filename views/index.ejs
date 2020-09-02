@@ -14,7 +14,15 @@
         <h1> Should My Kid Play That?!? </h1>
         <h4>The place where you can find information about the games your child plays, leave reviews for other parents, and more.
         </h4>
-
+        <ul class="right">
+            <li>
+                <% if (user) { %>
+                    <a href="/logout"></i>Log Out</a>
+                    <% } else { %>
+                        <a href="/auth/google"></i>Login with Google</a>
+                        <% } %>
+            </li>
+        </ul>
 
         <button><a href="/games/new">Add a Game</button></a> &nbsp; &nbsp; | &nbsp; &nbsp;
         <button><a href="/games">All Games</button></a>
