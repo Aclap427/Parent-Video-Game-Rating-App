@@ -34,6 +34,15 @@ body {
     background-color: limegreen;
 }
 
+.login {
+    width: 200px;
+    background-color: red;
+    font-size: .75em;
+    border-radius: 10px;
+    border: solid black;
+    color: #024058;
+}
+
 a {
     color: #024058;
     text-decoration: none;
