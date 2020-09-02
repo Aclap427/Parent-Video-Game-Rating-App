@@ -1,0 +1,88 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/show.css">
+<% include ../partials/nav %>
+    <div id="details">
+        <section id="show-page">
+            <div>
+                <h4>Title</h4>
+            </div>
+            <div>
+                <%= game.title %>
+            </div>
+            <div>
+                <h4>Average Rating</h4>
+            </div>
+            <div>
+                <%= game.avgRating %>
+            </div>
+            <div>
+                <h4>History</h4>
+            </div>
+            <div>
+                <%= game.history %>
+            </div>
+            <div>
+                <h4>Why Kids Want to Play</h4>
+            </div>
+            <div>
+                <%= game.whyPop %>
+            </div>
+    </div>
+    </section>
+    <br><br>
+    <h2>Reviews</h2>
+    <div id="container">
+        <form id="add-review-form" method="POST" action="/games/<%= game._id %>/reviews">
+
+            <label>Rating:</label>
+            <select name="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+            <label> Recommended Minimum Age:</label>
+
+
+            <input type="number">
+            </input>
+            <label>Review:</label>
+            <textarea name="content"></textarea>
+            <input type="submit" value="Add Review">
+        </form>
+
+        <% if (game.reviews.length) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rating</th>
+                        <th>Recommended Minimum Age</th>
+                        <th>Review</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% game.reviews.forEach(function(g) { %>
+                        <tr>
+                            <td>
+                                <%= g.rating %>
+                            </td>
+                            <td>
+                                <%= g.recAge %>
+                            </td>
+                            <td>
+                                <%= g.reviews %>
+                            </td>
+
+                            <form action="/reviews/" ?_method=DELETE " method="POST ">
+                                <button type="delete ">Delete</button>
+                            </form>
+
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+            <% } else { %>
+                <h5>No Reviews Yet</h5>
+                <% } %>
+    </div>
+    <% include ../partials/footer %>

@@ -1,0 +1,1 @@
+//router.delete('/reviews/:id', isLoggedIn, parentsCtrl.deleteReview);

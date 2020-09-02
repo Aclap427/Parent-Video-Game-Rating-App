@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/new.css">
+
+    <title>New Game</title>
+</head>
+
+<body>
+    <% include ../partials/nav %>
+
+        <div id="container">
+            <h2>Enter a New Game</h2>
+            <form action="/games" method="POST">
+                <label>Title:
+                <input type="text" class="input" name="title">
+            </label><br>
+                <label>Your Rating:
+                <select name="avgRating" class="input">
+                    <option value="5">5 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="2">2 Stars</option>
+                    <option value="1">1 Stars</option>
+                </select>
+            </label><br>
+                <label>Brief History:
+                <input type="text" class="input" name="history">
+            </label><br>
+                <label>Why Kids Like it:
+                <input type="text" class="input" name="whyPop">
+            </label><br>
+                <input type="submit" value="Add Game" id="button">
+            </form>
+        </div>
+        <% include ../partials/footer %>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+    <title>All Games</title>
+</head>
+
+<body>
+    <% include ../partials/nav %>
+        <div id="container">
+            <h2>All Games</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <h4>Title</h4>
+                        </th>
+                        <th>
+                            <h4>Rating</h4>
+                        </th>
+                        <th>
+                            <h4>
+                                Details</h4>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% games.forEach(function(g) { %>
+                        <tr>
+                            <td>
+                                <%= g.title %>
+                            </td>
+                            <td>
+                                <%= g.avgRating %>
+                            </td>
+                            <td><a href="/games/<%= g._id %>">DETAILS</a></td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
+        <% include ../partials/footer %>
+</body>
+
+</html>
