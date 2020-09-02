@@ -14,23 +14,21 @@
         <h1> Should My Kid Play That?!? </h1>
         <h4>The place where you can find information about the games your child plays, leave reviews for other parents, and more.
         </h4>
-        <ul>
-            <li>
-                <% if (user) { %>
-                    <button>
+        <div>
+            <% if (user) { %>
+                <button>
                     <a href="/logout"></i>Log Out</a></button>
-                    <% } else { %>
-                        <button>
+                <% } else { %>
+                    <button>
                         <a href="/auth/google"></i>Login with Google</a></button>
-                        <% } %>
-                            &nbsp; &nbsp; | &nbsp; &nbsp;
-                            <% if (user) { %>
-                                <button><a href="/games">Back to Games</button></a>
-                                <% } else { %>
-                                    <button><a href="/games">Proceed without Login</button></a>
-                                    <% } %>
-            </li>
-        </ul>
+                    <% } %>
+                        &nbsp; &nbsp; | &nbsp; &nbsp;
+                        <% if (user) { %>
+                            <button><a href="/games">Back to Games</button></a>
+                            <% } else { %>
+                                <button><a href="/games">Proceed without Login</button></a>
+                                <% } %>
+        </div>
 
     </div>
 
