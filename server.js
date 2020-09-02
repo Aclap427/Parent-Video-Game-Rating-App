@@ -17,6 +17,7 @@ require('./config/passport');
 var indexRouter = require('./routes/index');
 var gamesRouter = require('./routes/games');
 const reviewsRouter = require('./routes/reviews');
+const parentsRouter = require('./routes/parents');
 
 
 
@@ -44,6 +45,7 @@ app.use(function(req, res, next) {
 app.use('/', indexRouter);
 app.use('/games', gamesRouter);
 app.use('/', reviewsRouter);
+app.use('/', parentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

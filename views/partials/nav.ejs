@@ -9,5 +9,15 @@
 <div class="nav-container">
     <div id="right"><input id="searchbar" onkeyup="search_game()" type="text" name="search" placeholder="Search games.."></div>
     <div id="left">
-        <a href="/games/new">Add a Game</a> &nbsp; &nbsp; | <a href="/games">All Games</a>| &nbsp; &nbsp;<a href=" / ">Logout</a></div>
+        <a href="/games/new">Add a Game</a> &nbsp; &nbsp; | <a href="/games">All Games</a>| &nbsp; &nbsp;
+        <% if (user) { %>
+            <a href="/logout"></i>Log Out</a>
+
+            <% } else { %>
+
+                <a href="/auth/google"></i>Login with Google</a>
+
+                <% } %>
+
+    </div>
 </div>

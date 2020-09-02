@@ -3,10 +3,9 @@
     <div id="details">
         <section id="show-page">
             <div>
-                <h4>Title</h4>
-            </div>
-            <div>
-                <%= game.title %>
+                <h2>
+                    <%= game.title %>
+                </h2>
             </div>
             <div>
                 <h4>Average Rating</h4>
@@ -29,10 +28,9 @@
     </div>
     </section>
     <br><br>
-    <h2>Reviews</h2>
-    <div id="container">
+    <div id="reviewContainer">
+        <h2>Reviews</h2>
         <form id="add-review-form" method="POST" action="/games/<%= game._id %>/reviews">
-
             <label>Rating:</label>
             <select name="rating">
         <option value="1">1</option>
@@ -41,12 +39,24 @@
         <option value="4">4</option>
         <option value="5">5</option>
     </select>
+            <BR>
             <label> Recommended Minimum Age:</label>
-
-
-            <input type="number">
-            </input>
+            <select name="recAge">
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+        </select>
+            <BR>
             <label>Review:</label>
+
             <textarea name="content"></textarea>
             <input type="submit" value="Add Review">
         </form>
@@ -73,9 +83,6 @@
                                 <%= g.reviews %>
                             </td>
 
-                            <form action="/reviews/" ?_method=DELETE " method="POST ">
-                                <button type="delete ">Delete</button>
-                            </form>
 
                         </tr>
                         <% }); %>
@@ -84,5 +91,6 @@
             <% } else { %>
                 <h5>No Reviews Yet</h5>
                 <% } %>
+    </div>
     </div>
     <% include ../partials/footer %>

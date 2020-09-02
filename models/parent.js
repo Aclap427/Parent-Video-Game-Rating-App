@@ -6,7 +6,7 @@ let Schema = mongoose.Schema;
 let parentSchema = new Schema({
     name: String,
     email: String,
-    googleId: String
+    googleId: String,
 }, {
     timestamps: true
 });

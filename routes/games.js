@@ -12,7 +12,7 @@ router.post('/', gamesCtrl.create);
 //POST a review 
 router.get('/:id', gamesCtrl.show);
 
-//router.delete('/:id', gamesCtrl.delete);
+
 
 
 module.exports = router;

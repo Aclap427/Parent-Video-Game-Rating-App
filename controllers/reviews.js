@@ -1,8 +1,10 @@
 const Game = require('../models/game');
 
+
 module.exports = {
     create,
-    //delete: deleteReview
+
+
 };
 
 function create(req, res) {
@@ -13,12 +15,3 @@ function create(req, res) {
         });
     });
 }
-
-
-
-// function deleteReview(req, res) {
-//     req.user.reviews.remove(req.params.id);
-//     req.user.save(err => {
-//         res.redirect('/games');
-//     });
-// }

@@ -13,36 +13,38 @@
     <% include ../partials/nav %>
         <div id="container">
             <h2>All Games</h2>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            <h4>Title</h4>
-                        </th>
-                        <th>
-                            <h4>Rating</h4>
-                        </th>
-                        <th>
-                            <h4>
-                                Details</h4>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% games.forEach(function(g) { %>
+            <div id="flexcont">
+                <table>
+                    <thead>
                         <tr>
-                            <td>
-                                <%= g.title %>
-                            </td>
-                            <td>
-                                <%= g.avgRating %>
-                            </td>
-                            <td><a href="/games/<%= g._id %>">DETAILS</a></td>
+                            <th>
+                                <h4>Title</h4>
+                            </th>
+                            <th>
+                                <h4>Rating</h4>
+                            </th>
+                            <th>
+                                <h4>
+                                    Details</h4>
+
+                            </th>
                         </tr>
-                        <% }); %>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <% games.forEach(function(g) { %>
+                            <tr>
+                                <td>
+                                    <%= g.title %>
+                                </td>
+                                <td>
+                                    <%= g.avgRating %>
+                                </td>
+                                <td><a href="/games/<%= g._id %>" id="detailsLink">DETAILS</a></td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <% include ../partials/footer %>
 </body>
