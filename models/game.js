@@ -15,7 +15,8 @@ let reviewSchema = new Schema({
     reviewContent: {
         type: String,
         required: true
-    }
+    },
+    parent: { type: Schema.Types.ObjectId, ref: 'Parent' },
 }, {
     timestamps: true
 });
@@ -41,6 +42,11 @@ let gameSchema = new Schema({
     whyPop: {
         type: String,
     },
+    backgroundImg: {
+        type: String,
+        default: ''
+    },
+    parent: { type: Schema.Types.ObjectId, ref: 'Parent' },
     reviews: [reviewSchema]
 }, {
 

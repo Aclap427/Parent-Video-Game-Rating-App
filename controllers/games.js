@@ -27,6 +27,7 @@ function newGame(req, res) {
 
 function create(req, res) {
     const game = new Game(req.body);
+    game.parent = req.user._id;
     game.save(function(err) {
         if (err) return res.render('games/new');
         res.redirect('/games');
