@@ -2,11 +2,14 @@
 <% include ../partials/nav %>
     <div id="details">
         <section id="show-page">
+
             <div>
                 <h2>
                     <%= game.title %>
                 </h2>
             </div>
+            <div>
+                <img class="img" src="<%= game.img %>"></div>
             <div>
                 <BR>
                 <h4>Average Rating</h4>
@@ -32,7 +35,8 @@
                 <BR>
 
                 <% if (user){ %>
-                    <a href="/games/<%=game._id%>/edit" id="button"> &nbsp; Edit Game &nbsp; </a></div>
+                    <a href=" /games/<%=game._id%>/edit" id="button"> &nbsp; Edit Game &nbsp; </a>
+            </div>
             <BR>
             <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
                 <button type="submit" id="button">Delete Game</button>

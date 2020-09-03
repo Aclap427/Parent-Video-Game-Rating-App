@@ -27,9 +27,9 @@ let gameSchema = new Schema({
         type: String,
         required: true
     },
-    image: {
+    img: {
         type: String,
-        default: ""
+        default: 'https://i.imgur.com/2TAHHIjm.png',
     },
     avgRating: {
         type: Number,
