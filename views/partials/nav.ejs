@@ -7,21 +7,11 @@
     </h1>
 </div>
 <div class="nav-container">
-
-    <div id="right"><input id="searchbar" onkeyup="search_game()" type="text" name="search" placeholder="Search games.."></div>
-    <div id="left">
-        <% if (user) { %>
-            <a href="/games/new">Add a Game</a>
+    <a href="/games">All Games</a> &nbsp; &nbsp; &nbsp;
+    <% if (user) { %>
+        <a href="/games/new">Add a Game</a> &nbsp; &nbsp; &nbsp;
+        <a href="/logout">Log Out</a>
+        <% } else { %>
+            <a href="/auth/google">Login with Google</a>
             <% } %>
-                &nbsp; &nbsp; | <a href="/games">All Games</a>| &nbsp; &nbsp;
-                <% if (user) { %>
-                    <a href="/logout">Log Out</a>
-
-                    <% } else { %>
-
-                        <a href="/auth/google">Login with Google</a>
-
-                        <% } %>
-
-    </div>
 </div>
