@@ -23,5 +23,5 @@
 
 ---
 
-!(https://i.imgur.com/n8cbSFy.png?1)
-Landing Page
+![Landing Page](https://i.imgur.com/n8cbSFy.png?1)
+
