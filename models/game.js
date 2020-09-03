@@ -30,7 +30,10 @@ let gameSchema = new Schema({
         type: String,
         required: true
     },
-
+    image: {
+        type: String,
+        default: ""
+    },
     avgRating: {
         type: Number,
         min: 1,

@@ -12,6 +12,9 @@ router.post('/', gamesCtrl.create);
 //POST a review 
 router.get('/:id', gamesCtrl.show);
 
+//EDIT & UPDATE
+router.get('/:id/edit', gamesCtrl.edit);
+router.put('/:id', gamesCtrl.update);
 
 
 

@@ -6,6 +6,8 @@ module.exports = {
     new: newGame,
     create,
     show,
+    edit,
+    update
 
 };
 
@@ -34,4 +36,22 @@ function show(req, res) {
     Game.findById(req.params.id, function(err, game) {
         res.render('games/show', { title: 'Game Detail', game });
     });
+}
+
+function edit(req, res) {
+    Game.findById(req.params.id, function(err, game) {
+        if (err) {
+            res.redirect(`/games`)
+        }
+        res.render('games/edit', { game, title: 'Edit Game' })
+    })
+}
+
+function update(req, res) {
+    Game.findByIdAndUpdate(req.params.id, req.body, function(err, game) {
+        if (err) {
+            res.render('games/edit', { game, title: 'Edit Game', })
+        }
+        res.redirect(`/games`)
+    })
 }

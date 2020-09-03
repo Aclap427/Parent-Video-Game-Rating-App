@@ -8,23 +8,29 @@
                 </h2>
             </div>
             <div>
+                <BR>
                 <h4>Average Rating</h4>
             </div>
             <div>
                 <%= game.avgRating %>
             </div>
             <div>
+                <BR>
                 <h4>History</h4>
             </div>
             <div>
                 <%= game.history %>
             </div>
             <div>
+                <BR>
                 <h4>Why Kids Want to Play</h4>
             </div>
             <div>
                 <%= game.whyPop %>
             </div>
+            <div>
+                <BR>
+                <a href="/games/<%=game._id%>/edit" id="button"> &nbsp; Edit Game &nbsp; </a></div>
     </div>
     </section>
     <br><br>
@@ -57,7 +63,7 @@
             <BR>
             <label>Review:</label>
 
-            <textarea name="content"></textarea>
+            <textarea name="reviewContent"></textarea>
             <input type="submit" value="Add Review">
         </form>
 
@@ -80,10 +86,13 @@
                                 <%= g.recAge %>
                             </td>
                             <td>
-                                <%= g.reviews %>
+                                <%= g.reviewContent %>
                             </td>
-
-
+                            <td>
+                                <form action="/games/<%= game._id %>/reviews?_method=DELETE" method="POST" value="<%= g.reviewContent %>">
+                                    <button type="submit">x</button>
+                                </form>
+                            </td>
                         </tr>
                         <% }); %>
                 </tbody>
