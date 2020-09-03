@@ -5,15 +5,11 @@ const Schema = mongoose.Schema;
 let reviewSchema = new Schema({
     rating: {
         type: Number,
-        min: 1,
-        max: 5,
-        default: 5,
+
     },
     recAge: {
         type: Number,
-        min: 2,
-        max: 18,
-        default: 5,
+
     },
     reviewContent: {
         type: String,
@@ -36,8 +32,6 @@ let gameSchema = new Schema({
     },
     avgRating: {
         type: Number,
-        min: 1,
-        max: 5,
         default: 5,
     },
     history: {

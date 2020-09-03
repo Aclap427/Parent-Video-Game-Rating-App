@@ -38,16 +38,21 @@
         <h2>Reviews</h2>
         <form id="add-review-form" method="POST" action="/games/<%= game._id %>/reviews">
             <label>Rating:</label>
-            <select name="rating">
+            <BR>
+            <select name="rating" class="input">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
-        <option value="4">4</option>
+        <option selected="selected">
+            4
+        </option>
         <option value="5">5</option>
+       
     </select>
             <BR>
             <label> Recommended Minimum Age:</label>
-            <select name="recAge">
+            <BR>
+            <select name="recAge" class="input">
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
@@ -62,44 +67,54 @@
         </select>
             <BR>
             <label>Review:</label>
+            <BR>
 
-            <textarea name="reviewContent"></textarea>
-            <input type="submit" value="Add Review">
+            <textarea name="reviewContent" class="input"></textarea>
+            <BR>
+            <input type="submit" value="Add Review" id="button">
         </form>
-
-        <% if (game.reviews.length) { %>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Rating</th>
-                        <th>Recommended Minimum Age</th>
-                        <th>Review</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% game.reviews.forEach(function(g) { %>
+        <div id="content">
+            <% if (game.reviews.length) { %>
+                <table>
+                    <thead>
                         <tr>
-                            <td>
-                                <%= g.rating %>
-                            </td>
-                            <td>
-                                <%= g.recAge %>
-                            </td>
-                            <td>
-                                <%= g.reviewContent %>
-                            </td>
-                            <td>
-                                <form action="/games/<%= game._id %>/reviews?_method=DELETE" method="POST" value="<%= g.reviewContent %>">
-                                    <button type="submit">x</button>
-                                </form>
-                            </td>
+                            <th>
+                                <h4>Rating</h4>
+                            </th>
+                            <th>
+                                <h4>Recom. Min. Age</h4>
+                            </th>
+                            <th>
+                                <h4>Review</h4>
+                            </th>
                         </tr>
-                        <% }); %>
-                </tbody>
-            </table>
-            <% } else { %>
-                <h5>No Reviews Yet</h5>
-                <% } %>
+                    </thead>
+                    <tbody>
+                        <% game.reviews.forEach(function(g) { %>
+                            <tr>
+                                <td>
+                                    <%= g.rating %>
+                                </td>
+                                <td>
+                                    <%= g.recAge %>
+                                </td>
+                                <td>
+                                    <%= g.reviewContent %>
+                                </td>
+                                <td>
+                                    <form action="/games/<%= game._id %>/reviews?_method=DELETE" method="POST" value="<%= g.reviewContent %>">
+                                        <button type="submit" id="xbutton">x</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+
+                <% } else { %>
+                    <h5>No Reviews Yet</h5>
+                    <% } %>
+        </div>
     </div>
     </div>
     <% include ../partials/footer %>
