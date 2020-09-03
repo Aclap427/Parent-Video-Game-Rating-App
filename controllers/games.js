@@ -7,7 +7,8 @@ module.exports = {
     create,
     show,
     edit,
-    update
+    update,
+    delete: deleteGame
 
 };
 
@@ -54,5 +55,14 @@ function update(req, res) {
             res.render('games/edit', { title: 'Edit Game', game })
         }
         res.redirect(`/games/${game._id}`);
+    })
+}
+
+function deleteGame(req, res) {
+    Game.findByIdAndDelete(req.params.id, req.body, function(err, game) {
+        if (err) {
+            res.render('/games', { title: 'Delete Game', game })
+        }
+        res.redirect('/games');
     })
 }

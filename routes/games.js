@@ -11,8 +11,10 @@ router.get('/new', gamesCtrl.new);
 router.post('/', gamesCtrl.create);
 //POST a review 
 router.get('/:id', gamesCtrl.show);
+//delete game
+router.delete('/:id', gamesCtrl.delete);
 
-//EDIT & UPDATE
+//EDIT & UPDATE game
 router.get('/:id/edit', gamesCtrl.edit);
 router.put('/:id', gamesCtrl.update);
 
