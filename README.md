@@ -20,3 +20,8 @@
 
 - Add an API
 - Add ability to search through games using a Search Bar
+
+---
+
+!(https://i.imgur.com/n8cbSFy.png?1)
+Landing Page
