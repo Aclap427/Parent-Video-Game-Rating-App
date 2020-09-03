@@ -41,17 +41,18 @@ function show(req, res) {
 function edit(req, res) {
     Game.findById(req.params.id, function(err, game) {
         if (err) {
-            res.redirect(`/games`)
+            console.log(err)
+            res.redirect(`/games/${req.params.id}`)
         }
-        res.render('games/edit', { game, title: 'Edit Game' })
+        res.render('games/edit', { title: 'Edit Game', game })
     })
 }
 
 function update(req, res) {
     Game.findByIdAndUpdate(req.params.id, req.body, function(err, game) {
         if (err) {
-            res.render('games/edit', { game, title: 'Edit Game', })
+            res.render('games/edit', { title: 'Edit Game', game })
         }
-        res.redirect(`/games`)
+        res.redirect(`/games/${game._id}`);
     })
 }

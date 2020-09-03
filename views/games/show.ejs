@@ -103,8 +103,8 @@
                                     <%= g.reviewContent %>
                                 </td>
                                 <td>
-                                    <form action="/games/<%= game._id %>/reviews?_method=DELETE" method="POST" value="<%= g.reviewContent %>">
-                                        <button type="submit" id="xbutton">x</button>
+                                    <form action="/games/<%= game._id %>/reviews?_method=DELETE" method="POST">
+                                        <button type="submit" id="xbutton" name="reviewContent">x</button>
                                     </form>
                                 </td>
                             </tr>

@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
+var methodOverride = require('method-override');
 
 require('dotenv').config();
 
@@ -41,6 +42,7 @@ app.use(function(req, res, next) {
     res.locals.user = req.user;
     next();
 });
+app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/games', gamesRouter);
