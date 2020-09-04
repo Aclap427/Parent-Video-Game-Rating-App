@@ -1,9 +1,12 @@
-<link rel='stylesheet' href='/stylesheets/index.css' />
+<link rel='stylesheet' href='/stylesheets/edit.css' />
 <% include ../partials/nav %>
     <div id="container">
         <form action="/games/<%= game._id %>?_method=PUT" method="POST">
             <label for="game">
             <h2>Edit <%= game.title %>:</h2>
+        </label>
+            <label>Add Image URL:
+            <input type="text" class="input" name="img"><br>
         </label>
             <BR>
             <label>Your Rating:

@@ -4,21 +4,24 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let reviewSchema = new Schema({
-    rating: {
-        type: Number,
+        rating: {
+            type: Number,
 
-    },
-    recAge: {
-        type: Number,
+        },
+        recAge: {
+            type: Number,
 
+        },
+        reviewContent: {
+            type: String,
+            required: true
+        },
+        parent: { type: Schema.Types.ObjectId, ref: 'Parent' },
     },
-    reviewContent: {
-        type: String,
-        required: true
-    }
-}, {
-    timestamps: true
-});
+
+    {
+        timestamps: true
+    });
 
 
 
@@ -44,6 +47,10 @@ let gameSchema = new Schema({
     },
     whyPop: {
         type: String,
+    },
+    parent: {
+        type: Schema.Types.ObjectId,
+        ref: 'Parent'
     },
     reviews: [reviewSchema]
 }, {

@@ -34,9 +34,11 @@
                 </div>
                 <div>
                     <BR>
-                    <% if (user) { %>
+                    <% if (user &&(game.parent.equals(user._id))){ %>
                         <a href="/games/<%=game._id%>/edit" id="button"> &nbsp; Edit Game &nbsp; </a>
                         <BR>
+                        <BR>
+
                         <button id="button">Delete Game</button>
                         <% } %>
                 </div>

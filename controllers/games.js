@@ -8,6 +8,7 @@ module.exports = {
     show,
     edit,
     update,
+    delete: deleteGame,
 };
 
 function index(req, res) {
@@ -25,6 +26,7 @@ function newGame(req, res) {
 
 function create(req, res) {
     const game = new Game(req.body);
+    game.parent = req.user._id;
     game.save(function(err) {
         if (err) return res.render('games/new');
         res.redirect('/games');
@@ -52,5 +54,14 @@ function update(req, res) {
             res.render('games/edit', { game, title: 'Edit Game', })
         }
         res.redirect(`/games`)
+    })
+}
+
+function deleteGame(req, res) {
+    Game.findByIdAndDelete(req.params.id, req.body, function(err, game) {
+        if (err) {
+            res.render('/games', { title: 'Delete Game', game })
+        }
+        res.redirect('/games');
     })
 }
