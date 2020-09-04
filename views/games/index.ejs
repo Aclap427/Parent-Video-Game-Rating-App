@@ -19,14 +19,16 @@
                     <thead>
                         <tr>
                             <th>
+                                <h4>Screenshot</h4>
+                            </th>
+                            <th>
                                 <h4>Title</h4>
                             </th>
                             <th>
                                 <h4>Rating</h4>
                             </th>
                             <th>
-                                <h4>
-                                    Details</h4>
+                                <h4>Details</h4>
 
                             </th>
                         </tr>
@@ -34,6 +36,10 @@
                     <tbody>
                         <% games.forEach(function(g) { %>
                             <tr>
+                                <td>
+                                    <div>
+                                        <img class="img" src="<%= g.img %>" width="100px" length="50px"></div>
+                                </td>
                                 <td>
                                     <%= g.title %>
                                 </td>
