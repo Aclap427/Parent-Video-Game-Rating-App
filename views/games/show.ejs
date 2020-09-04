@@ -2,7 +2,6 @@
 <% include ../partials/nav %>
     <div id="details">
         <section id="show-page">
-
             <div>
                 <h2>
                     <%= game.title %>
@@ -12,65 +11,60 @@
                 <img class="img" src="<%= game.img %>"></div>
             <div>
                 <BR>
-                <h4>Average Rating</h4>
-            </div>
-            <div>
-                <%= game.avgRating %>
-            </div>
-            <div>
-                <BR>
-                <h4>History</h4>
-            </div>
-            <div>
-                <%= game.history %>
-            </div>
-            <div>
-                <BR>
-                <h4>Why Kids Want to Play</h4>
-            </div>
-            <div>
-                <%= game.whyPop %>
-            </div>
-            <div>
-                <BR>
+                <div>
+                    <BR>
+                    <h4>Average Rating</h4>
+                </div>
+                <div>
+                    <%= game.avgRating %>
+                </div>
+                <div>
+                    <BR>
+                    <h4>History</h4>
+                </div>
+                <div>
+                    <%= game.history %>
+                </div>
+                <div>
+                    <BR>
+                    <h4>Why Kids Want to Play</h4>
+                </div>
+                <div>
+                    <%= game.whyPop %>
+                </div>
+                <div>
+                    <BR>
+                    <% if (user) { %>
+                        <a href="/games/<%=game._id%>/edit" id="button"> &nbsp; Edit Game &nbsp; </a>
+                        <BR>
+                        <button id="button">Delete Game</button>
+                        <% } %>
+                </div>
 
-                <% if (user &&(game.parent.equals(user._id))){ %>
-                    <a href=" /games/<%=game._id%>/edit" id="button"> &nbsp; Edit Game &nbsp; </a>
             </div>
-            <BR>
-            <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
-                <button type="submit" id="button">Delete Game</button>
-                <% } %>
-
+        </section>
     </div>
-    </div>
-
-    </section>
     <br><br>
+    <div id="reviewContainer">
+        <h2>Reviews</h2>
+        <form id="add-review-form" method="POST" action="/games/<%= game._id %>/reviews">
+            <label>Rating:</label>
+            <BR>
 
+            <select name="rating" class="input">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option selected="selected">
+                4
+            </option>
+            <option value="5">5</option>
 
-    <section name="review">
-        <div id="reviewContainer">
-            <h2>Reviews</h2>
-            <% if (user) { %>
-                <form id="add-review-form" method="POST" action="/games/<%= game._id %>/reviews">
-                    <label>Rating:</label>
-                    <BR>
-
-                    <select name="rating" class="input">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option selected="selected">
-                    4
-                </option>
-                <option value="5">5</option>
-
-                </select>
-                    <BR>
-                    <label> Recommended Minimum Age:</label>
-                    <BR>
-                    <select name="recAge" class="input">
+        </select>
+            <BR>
+            <label> Recommended Minimum Age:</label>
+            <BR>
+            <select name="recAge" class="input">
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
@@ -83,55 +77,50 @@
             <option value="12">12</option>
             <option value="13">13</option>
         </select>
-                    <BR>
-                    <label>Review:</label>
-                    <BR>
+            <BR>
+            <label>Review:</label>
+            <BR>
 
-                    <textarea name="reviewContent" class="input"></textarea>
-                    <BR>
-                    <input type="submit" value="Add Review" id="button">
-                </form>
-                <% } %>
-                    <div id="content">
-                        <% if (game.reviews.length) { %>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <h4>Rating</h4>
-                                        </th>
-                                        <th>
-                                            <h4>Recom. Min. Age</h4>
-                                        </th>
-                                        <th>
-                                            <h4>Review</h4>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <% game.reviews.forEach(function(g) { %>
-                                        <tr>
-                                            <td>
-                                                <%= g.rating %>
-                                            </td>
-                                            <td>
-                                                <%= g.recAge %>
-                                            </td>
-                                            <td>
-                                                <%= g.reviewContent %>
-                                            </td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <% }); %>
-                                </tbody>
-                            </table>
-
-                            <% } else { %>
-                                <h5>No Reviews Yet</h5>
-                                <% } %>
-                    </div>
+            <textarea name="reviewContent" class="input"></textarea>
+            <BR>
+            <input type="submit" value="Add Review" id="button">
+        </form>
+        <div id="content">
+            <% if (game.reviews.length) { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <h4>Rating</h4>
+                            </th>
+                            <th>
+                                <h4>Recom. Min. Age</h4>
+                            </th>
+                            <th>
+                                <h4>Review</h4>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% game.reviews.forEach(function(g) { %>
+                            <tr>
+                                <td>
+                                    <%= g.rating %>
+                                </td>
+                                <td>
+                                    <%= g.recAge %>
+                                </td>
+                                <td>
+                                    <%= g.reviewContent %>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <% } else { %>
+                    <h5>No Reviews Yet</h5>
+                    <% } %>
         </div>
-        </div>
-    </section>
+    </div>
+    </div>
     <% include ../partials/footer %>

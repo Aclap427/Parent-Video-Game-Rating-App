@@ -15,8 +15,7 @@ let reviewSchema = new Schema({
     reviewContent: {
         type: String,
         required: true
-    },
-    parent: { type: Schema.Types.ObjectId, ref: 'Parent' },
+    }
 }, {
     timestamps: true
 });
@@ -32,6 +31,10 @@ let gameSchema = new Schema({
         type: String,
         default: 'https://i.imgur.com/2TAHHIjm.png',
     },
+    image: {
+        type: String,
+        default: ""
+    },
     avgRating: {
         type: Number,
         default: 5,
@@ -42,11 +45,6 @@ let gameSchema = new Schema({
     whyPop: {
         type: String,
     },
-    backgroundImg: {
-        type: String,
-        default: ''
-    },
-    parent: { type: Schema.Types.ObjectId, ref: 'Parent' },
     reviews: [reviewSchema]
 }, {
 

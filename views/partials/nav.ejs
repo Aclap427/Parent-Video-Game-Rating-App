@@ -7,11 +7,15 @@
     </h1>
 </div>
 <div class="nav-container">
-    <a href="/games">All Games</a> &nbsp; &nbsp; &nbsp;
     <% if (user) { %>
-        <a href="/games/new">Add a Game</a> &nbsp; &nbsp; &nbsp;
-        <a href="/logout">Log Out</a>
-        <% } else { %>
-            <a href="/auth/google">Login with Google</a>
-            <% } %>
+        <a href="/games/new">Add a Game</a>
+        <% } %>
+            &nbsp; &nbsp; | <a href="/games">All Games</a>| &nbsp; &nbsp;
+            <% if (user) { %>
+                <a href="/logout">Log Out</a>
+                <% } else { %>
+                    <a href="/auth/google">Login with Google</a>
+                    <% } %>
+
+</div>
 </div>

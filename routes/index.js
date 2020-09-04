@@ -2,9 +2,9 @@ var router = require('express').Router();
 
 const passport = require('passport');
 
-
+/* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index');
+    res.render('index', { title: 'Express' });
 });
 
 router.get('/auth/google', passport.authenticate(

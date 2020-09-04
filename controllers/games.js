@@ -8,8 +8,6 @@ module.exports = {
     show,
     edit,
     update,
-    delete: deleteGame
-
 };
 
 function index(req, res) {
@@ -27,7 +25,6 @@ function newGame(req, res) {
 
 function create(req, res) {
     const game = new Game(req.body);
-    game.parent = req.user._id;
     game.save(function(err) {
         if (err) return res.render('games/new');
         res.redirect('/games');
@@ -43,27 +40,17 @@ function show(req, res) {
 function edit(req, res) {
     Game.findById(req.params.id, function(err, game) {
         if (err) {
-            console.log(err)
-            res.redirect(`/games/${req.params.id}`)
+            res.redirect(`/games`)
         }
-        res.render('games/edit', { title: 'Edit Game', game })
+        res.render('games/edit', { game, title: 'Edit Game' })
     })
 }
 
 function update(req, res) {
     Game.findByIdAndUpdate(req.params.id, req.body, function(err, game) {
         if (err) {
-            res.render('games/edit', { title: 'Edit Game', game })
+            res.render('games/edit', { game, title: 'Edit Game', })
         }
-        res.redirect(`/games/${game._id}`);
-    })
-}
-
-function deleteGame(req, res) {
-    Game.findByIdAndDelete(req.params.id, req.body, function(err, game) {
-        if (err) {
-            res.render('/games', { title: 'Delete Game', game })
-        }
-        res.redirect('/games');
+        res.redirect(`/games`)
     })
 }
