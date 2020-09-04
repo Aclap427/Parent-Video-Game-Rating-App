@@ -3,10 +3,11 @@
 ---
 ### List of technologies used
 
-
+- HTML
+- CSS
 - JS
 - EJS
-- CSS
+- OAuth
 - Mongoose
 - MongoDB
 ---
