@@ -26,3 +26,7 @@
 
 ![Landing Page](https://i.imgur.com/n8cbSFy.png?2)
 
+![All Games](https://i.imgur.com/v8gqNo7.png?1)
+
+![Game View](https://i.imgur.com/O30xotz.png?1)
+
